@@ -16,13 +16,9 @@ pipeline {
                 sh 'python -m unittest discover -s app'
             }
         }
-        stage('Initialize') {
-            steps {
-                script {
-                    def dockerHome = tool 'myDocker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-                    env.PATH = "${dockerHome}/bin:${env.PATH}"
-                }
-            }
+         stage('Initialize'){
+            def dockerHome = tool 'myDocker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
         stage('Créer une image Docker') {
             steps {
