@@ -16,6 +16,10 @@ pipeline {
                 sh 'python -m unittest discover -s app'
             }
         }
+        stage('Initialize') {
+            def dockerHome = tool 'myDocker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         stage('Créer une image Docker') {
             steps {
                 sh 'docker build -t hello-world .'
