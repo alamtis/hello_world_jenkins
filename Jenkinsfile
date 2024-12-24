@@ -11,11 +11,6 @@ pipeline {
                 url: 'https://github.com/alamtis/hello_world_jenkins.git'
             }
         }
-        stage('Construction') {
-            steps {
-                sh 'pip install -r requirements.txt'
-            }
-        }
         stage('Tests') {
             steps {
                 sh 'python -m unittest discover -s app'
