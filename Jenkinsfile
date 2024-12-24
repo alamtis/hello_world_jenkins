@@ -7,7 +7,8 @@ pipeline {
     stages {
         stage('Récupération du code') {
             steps {
-                git 'https://github.com/alamtis/hello_world_jenkins.git'
+                git branch: 'main',
+                url: 'https://github.com/alamtis/hello_world_jenkins.git'
             }
         }
         stage('Construction') {
