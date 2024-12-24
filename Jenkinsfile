@@ -24,10 +24,10 @@ pipeline {
     }
     post {
         success {
-            echo 'Construction et tests réussis !'
+            echo 'Tests réussis !'
         }
         failure {
-            echo 'Échec de la construction ou des tests.'
+            echo 'Échec des tests.'
         }
     }
 }
