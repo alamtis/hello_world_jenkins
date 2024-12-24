@@ -1,8 +1,9 @@
 pipeline {
     agent {
-        docker {
-            image 'python:3.9-slim'
-        }
+    dockerfile true
+//         docker {
+//             image 'python:3.9-slim'
+//         }
     }
     stages {
         stage('Récupération du code') {
