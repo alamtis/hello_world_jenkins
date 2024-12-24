@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-         docker {
-            image 'python:3.9-slim'
-        }
-    }
+    agent any
     stages {
         stage('Récupération du code') {
             steps {
@@ -16,14 +12,14 @@ pipeline {
                 sh 'python -m unittest discover -s app'
             }
         }
-         stage('Initialize'){
-            steps {
-                script {
-                    def dockerHome = tool 'myDocker'
-                    env.PATH = "${dockerHome}/bin:${env.PATH}"
-                }
-            }
-        }
+//          stage('Initialize'){
+//             steps {
+//                 script {
+//                     def dockerHome = tool 'myDocker'
+//                     env.PATH = "${dockerHome}/bin:${env.PATH}"
+//                 }
+//             }
+//         }
         stage('Créer une image Docker') {
             steps {
                 sh 'docker build -t hello-world .'
